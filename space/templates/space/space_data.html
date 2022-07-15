@@ -1,0 +1,9 @@
+{% if date.title %}
+<h1>L'image astronomique du jour</h1>
+<p>{{ data.title}}</p>
+<img src="{{ data.url }}" alt="image-espace-nasa">
+{% if data.copyright %}
+<p>Auteur: {{ data.copyright}}</p>
+{% endif %}
+<p>Description: {{ explication }}</p>
+{% endif %}
