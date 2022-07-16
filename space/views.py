@@ -9,11 +9,10 @@ from googletrans import Translator
 from datetime import datetime
 def index(request):
     context = {}
-    print(datetime.now())
-    context["data"] = 1
     return render(request, 'space/index.html', context=context)
 
 def apiNasa(request):
+    """Retourn les données de l'api selon la date entrer par l'utilisateur"""
     date = request.POST.get("date-time")
     key = "zmyT1mibIhnrYPwcuy5dY4wjjWGRO6eZvXofwXau"
     data_date = date
@@ -24,5 +23,4 @@ def apiNasa(request):
     translator = Translator()
     translation = translator.translate(text, dest='fr')
     explication = translation.text 
-    # print(explanation)
     return render(request, 'space/space_data.html', {'data': data , 'date':date, 'explication': explication})
